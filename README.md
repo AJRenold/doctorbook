@@ -13,3 +13,4 @@ Current Tasks:
 1. For a term in our DataFrame, write a function that fetches it's wikipedia url (if it has one)
 2. Find important terms in the document text (not inside of tags)
 3. How to Save/Load DataFrame for use with webserver
+4. Build Front-end
