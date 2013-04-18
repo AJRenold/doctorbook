@@ -1,0 +1,482 @@
+,tag,term
+0,keyword,organize
+1,keyword,organizing system
+2,keyword,discipline
+3,keyword,framework
+4,keyword,resource
+5,keyword,collection
+6,keyword,intentional arrangement
+7,keyword,agent
+8,keyword,description resource
+9,keyword,primary resource
+10,keyword,surrogate resource
+11,keyword,metadata
+12,author,Robert J. Glushko
+13,indexterm,Organizing Systems
+14,indexterm,organizing system
+15,indexterm,collection resources
+16,indexterm,intentional arrangement
+17,indexterm,interactions
+18,indexterm,resource physical
+19,indexterm,resource digital
+20,indexterm,physical things
+21,indexterm,digital things
+22,indexterm,organize
+23,indexterm,activities organizing
+24,indexterm,part-whole inclusion
+25,indexterm,inclusion part-whole
+26,indexterm,digital library
+27,indexterm,information as thing
+28,indexterm,"Buckland, Michael"
+29,indexterm,"Nunberg, Geoff"
+30,indexterm,concept information
+31,indexterm,zoo antelope as document
+32,indexterm,library science document
+33,indexterm,library science authorship
+34,indexterm,"Melville, Herman is the author of Moby Dick"
+35,indexterm,"Moby Dick has author Melville, Herman"
+36,indexterm,white space print publishing
+37,indexterm,discipline of organizing
+38,indexterm,discipline
+39,indexterm,library science bibliographic universe
+40,indexterm,"Wilson, Patrick"
+41,indexterm,framework
+42,indexterm,organizing system
+43,indexterm,concept organizing system
+44,indexterm,computational agents
+45,indexterm,cataloging
+46,indexterm,"Svenonius, Elaine"
+47,indexterm,tradeoffs principle
+48,indexterm,principle tradeoffs
+49,indexterm,tradeoffs inherent
+50,indexterm,resource
+51,indexterm,primary resource introduced
+52,indexterm,concept resource
+53,indexterm,HTTP resource
+54,indexterm,URI resource
+55,indexterm,URI
+56,indexterm,HTTP
+57,indexterm,URI
+58,indexterm,HTTP
+59,indexterm,computing content negotiation
+60,indexterm,business applications content negotiation
+61,indexterm,primary resource
+62,indexterm,resource primary
+63,indexterm,RFID
+64,indexterm,computational agents
+65,indexterm,business intellectual capital
+66,indexterm,collection
+67,indexterm,collection index
+68,indexterm,concept collection
+69,indexterm,concept index
+70,indexterm,resource description index
+71,indexterm,resource collection
+72,indexterm,set
+73,indexterm,aggregation
+74,indexterm,dataset
+75,indexterm,corpus
+76,indexterm,index
+77,indexterm,resource description index
+78,indexterm,library science index
+79,indexterm,language index
+80,indexterm,intentional arrangement
+81,indexterm,concept intentional arrangement
+82,indexterm,self-organizing systems
+83,indexterm,"Smith, Adam"
+84,indexterm,"Darwin, Charles"
+85,indexterm,intentional arrangement defined
+86,indexterm,computational agents
+87,indexterm,self-organizing system
+88,indexterm,data structures self-organizing system
+89,indexterm,CERN
+90,indexterm,"Berners-Lee, Tim"
+91,indexterm,W3C
+92,indexterm,computing plain web
+93,indexterm,organizing principle
+94,indexterm,concept organizing principle
+95,indexterm,alphabetical ordering
+96,indexterm,chronological ordering
+97,indexterm,digital library
+98,indexterm,white space print publishing
+99,indexterm,organizing system three tiered
+100,indexterm,data storage architectural tier
+101,indexterm,business logic architectural tier
+102,indexterm,presentation architectural tier
+103,indexterm,architectural perspective three tier model
+104,indexterm,white space print publishing
+105,indexterm,digitization
+106,indexterm,resource digitization
+107,indexterm,activities selecting digitization
+108,indexterm,constraints physical
+109,indexterm,computing alternative resources
+110,indexterm,collocation
+111,indexterm,principle collocation
+112,indexterm,computing algorithm analysis
+113,indexterm,white space print publishing
+114,indexterm,concept agent
+115,indexterm,library science job titles
+116,indexterm,agent
+117,indexterm,interactions agent
+118,indexterm,costs accounting
+119,indexterm,agency
+120,indexterm,computational processes
+121,indexterm,RFID
+122,indexterm,computational agents
+123,indexterm,interactions
+124,indexterm,concept interactions
+125,indexterm,finding interaction
+126,indexterm,identifying interaction
+127,indexterm,selecting interaction
+128,indexterm,interactions defined
+129,indexterm,IFLA
+130,indexterm,library science IFLA
+131,indexterm,"Cutter, Charles"
+132,indexterm,physical resources digital zoo
+133,indexterm,physical resources interactions telepresence
+134,indexterm,zoo Digital Zoo sidebar
+135,indexterm,law fair use doctrine
+136,indexterm,fair use doctrine
+137,indexterm,copyright fair use doctrine
+138,indexterm,copyright use of DRM
+139,indexterm,DRM
+140,indexterm,API
+141,indexterm,costs accounting
+142,indexterm,business applications resource management
+143,indexterm,fair use doctrine
+144,indexterm,copyright fair use doctrine
+145,indexterm,organizing system design decisions
+146,indexterm,"organizing system what, why, where, when, how and by whom?"
+147,indexterm,design decisions
+148,indexterm,tradeoffs imposed by requirements
+149,indexterm,constraints contextual
+150,indexterm,organizing system design space
+151,indexterm,design space
+152,indexterm,organizing system ways to classify
+153,indexterm,classifying organizing systems ways to
+154,indexterm,EDM
+155,indexterm,computing storage tier
+156,indexterm,IFLA library types
+157,indexterm,library science types
+158,indexterm,organizing system view multifaceted
+159,indexterm,organizing system view multidimensional
+160,indexterm,zoo as organizing system
+161,indexterm,library science what is
+162,indexterm,interactions circulation
+163,indexterm,circulation
+164,indexterm,interactions circulation defines a library
+165,indexterm,"Brin, Sergei"
+166,indexterm,business applications digitization
+167,indexterm,categorization challenge
+168,indexterm,Google book digitization project
+169,indexterm,law orphan works
+170,indexterm,"Samuelson, Pamela"
+171,indexterm,costs legal
+172,indexterm,orphan works
+173,indexterm,copyright orphan works
+174,indexterm,digital library
+175,indexterm,Hathi Trust
+176,indexterm,constraints functional
+177,indexterm,organizing what
+178,indexterm,organizing identity
+179,indexterm,identity
+180,indexterm,SKU
+181,indexterm,FRBR
+182,indexterm,library science FRBR
+183,indexterm,fonds
+184,indexterm,library science fonds
+185,indexterm,archives University of California Berkeley
+186,indexterm,fonds
+187,indexterm,respect pour les fonds
+188,indexterm,"University of California, Berkeley archives"
+189,indexterm,Hearst Castle archives
+190,indexterm,archives respect pour les fonds
+191,indexterm,library science archives
+192,indexterm,library science fonds
+193,indexterm,organizing why
+194,indexterm,zoo versus theme parks and preserves
+195,indexterm,cognitive science undefined boundaries
+196,indexterm,library science organizing systems
+197,indexterm,business organizing systems
+198,indexterm,ERP
+199,indexterm,ECM
+200,indexterm,CRM
+201,indexterm,BI
+202,indexterm,KM
+203,indexterm,SCM
+204,indexterm,organizing degree
+205,indexterm,organizing how much
+206,indexterm,degree of organizing systems
+207,indexterm,SKU
+208,indexterm,costs accounting
+209,indexterm,cataloging
+210,indexterm,library science cataloging rules
+211,indexterm,"Coase, Ronald"
+212,indexterm,"Smith, Adam"
+213,indexterm,"Williamson, Oliver"
+214,indexterm,"Chandler, Alfred"
+215,indexterm,"Simon, Herbert"
+216,indexterm,transaction costs
+217,indexterm,costs transaction
+218,indexterm,costs Moore's Law
+219,indexterm,Moore's Law
+220,indexterm,costs transaction
+221,indexterm,organizing when
+222,indexterm,temporal parameters
+223,indexterm,tradeoffs organization versus retrieval
+224,indexterm,EXIF
+225,indexterm,computing EXIF
+226,indexterm,chronological ordering
+227,indexterm,numerical ordering
+228,indexterm,LOC-CN
+229,indexterm,LOC-SH
+230,indexterm,ISBN
+231,indexterm,"Nunberg, Geoff"
+232,indexterm,library science metadata train wreck
+233,indexterm,Google personalized ad placement
+234,indexterm,search results selection and ranking
+235,indexterm,ranking search results
+236,indexterm,selection
+237,indexterm,governance
+238,indexterm,activities maintenance governance
+239,indexterm,institutional governance
+240,indexterm,organizing how
+241,indexterm,organizing by whom
+242,indexterm,organizing professionals
+243,indexterm,bibliographic universe
+244,indexterm,costs human factors
+245,indexterm,cataloging formal
+246,indexterm,library science education vs practice
+247,indexterm,NSPO
+248,indexterm,white space print publishing
+249,indexterm,Web 2.0 sidebar
+250,indexterm,Library 2.0 sidebar
+251,indexterm,Museum 2.0 sidebar
+252,indexterm,Gov 2.0 sidebar
+253,indexterm,"O'Reilly, Tim"
+254,indexterm,"Dougherty, Dale"
+255,indexterm,Amazon.com
+256,indexterm,eBay
+257,indexterm,Twitter
+258,indexterm,Facebook
+259,indexterm,folksonomy
+260,indexterm,computing hidden web
+261,indexterm,Yahoo!
+262,indexterm,"Yang, Jerry"
+263,indexterm,"Filo, David"
+264,indexterm,organizing this book
+265,indexterm,tradeoffs organization versus retrieval
+266,indexterm,NLP
+267,indexterm,ranking descriptions
+268,indexterm,tradeoffs descriptive versus prescriptive
+269,orgname,"University of California, Berkeley"
+270,orgname,"School of
+Information"
+271,orgname,Berkeley
+272,orgname,"World Wide Web
+Consortium"
+273,orgname,Apple
+274,orgname,"US Department of
+Labor, Bureau of Labor Statistics"
+275,orgname,"International Federation of
+Library Associations and
+Institutions"
+276,orgname,"International Federation
+of Library Associations"
+277,orgname,Flickr
+278,orgname,Google
+279,orgname,Google
+280,orgname,"US District
+Court"
+281,orgname,US Justice Department
+282,orgname,Alfred P. Sloan Foundation
+283,orgname,"Digital Public Library of
+America"
+284,orgname,US Congress
+285,orgname,Natural History Museum
+286,orgname,"Sea
+World"
+287,orgname,"University of California,
+Berkeley"
+288,orgname,Google
+289,orgname,Google
+290,orgname,Google
+291,orgname,Flickr
+292,orgname,Westlaw
+293,orgname,LexisNexis
+294,orgname,"National Association of Professional
+Organizers"
+295,orgname,Google
+296,orgname,Amazon.com
+297,orgname,eBay
+298,orgname,Wikipedia
+299,orgname,Facebook
+300,orgname,Twitter
+301,orgname,YouTube
+302,orgname,Google
+303,orgname,Microsoft
+304,orgname,Yahoo!
+305,orgname,Google
+306,orgname,Microsoft
+307,personname,Michael Buckland
+308,personname,Herman Melville
+309,personname,Patrick Wilson
+310,personname,Elaine Svenonius
+311,personname,Adam Smith
+312,personname,Charles Darwin
+313,personname,Tim Berners-Lee
+314,personname,Sergei Brin
+315,personname,Jennifer Trant
+316,personname,Anne Gilliland
+317,personname,Julia Morgan
+318,personname,Tom Malone
+319,personname,Neil Simon
+320,personname,Geoff Nunberg
+321,personname,Tim O'Reilly
+322,personname,Dale Dougherty
+323,personname,Andrew McAfee
+324,personname,Tim O'Reilly
+325,personname,Thomas Van der Wal
+326,personname,Jeff Howe
+327,personname,Jerry Yang
+328,personname,David Filo
+329,phrase,"To organize is to create capabilities by intentionally imposing order and
+                    structure."
+330,phrase,"Organizing
+                        System : an
+                    intentionally arranged collection of resources and the interactions they
+                    support."
+331,phrase,library science
+332,phrase,information science
+333,phrase,cognitive science
+334,phrase,systems analysis
+335,phrase,computer science
+336,phrase,information organization
+337,phrase,"art and science of
+organizing"
+338,phrase,"A discipline is an integrated field of study in which there is some level of agreement about
+                    the issues and problems that deserve study, how they are interrelated, how they
+                    should be studied, and how findings or theories about the issues and problems
+                    should be evaluated."
+339,phrase,"A framework is a set of concepts that provide the basic structure for understanding a
+                    domain, enabling a common vocabulary for different explanatory
+                    theories."
+340,phrase,"An organizing system is a collection of resources arranged in ways that
+enable people or computational agents to interact with them."
+341,phrase,"Resource has
+                    an ordinary sense of anything of value that can support goal-oriented
+                        activity. This definition means that a resource can be a physical thing , a non-physical thing, information about
+                    physical things, information about non-physical things, or anything you want to
+                    organize. Other words that aim for this broad scope are entity , object , item , and instance . Document is
+                    often used for an information resource in either digital or physical format; artifact refers to resources created by people, and asset for resources with
+                    economic value."
+342,phrase,"Resource has specialized
+                    meaning in Internet architecture. It is conventional to describe web pages,
+                    images, videos, product catalogs, and so on as resources and the protocol for
+                    accessing them, Hypertext Transfer Protocol HTTP , uses the Uniform Resource Identifier URI ."
+343,phrase,"RFID computational agents Treating as a primary
+                            resource anything that can be
+                    identified is an important generalization of the concept because it enables
+                    web-based services, data feeds, objects with RFID tags , sensors or other smart
+                            devices or computational agents to be part of Organizing Systems."
+344,phrase,"Many of the resources in
+                    Organizing Systems are description
+                            resources or surrogate
+                            resources that describe the primary
+                        resources ; library catalog entries or the list of results in web
+                    search engines are familiar examples."
+345,phrase,"Resources that describe, or are associated with other resources are
+                    sometimes called metadata ."
+346,phrase,"A collection is a group of resources that have been selected for some purpose. Similar terms
+                    are set (mathematics), aggregation (data modeling), dataset (science and
+                    business), and corpus (linguistics and literary analysis)."
+347,phrase,"An index is
+                    a description
+                        resource that contains information about the locations and
+                    frequencies of terms in a document collection to enable it to be searched
+                efficiently."
+348,phrase,"Intentional
+                                arrangement emphasizes explicit
+                    or implicit acts of organization by people, or by computational processes acting
+                    as proxies for, or as implementations of, human intentionality. Intentional
+                    arrangement excludes naturally-occurring patterns created by physical,
+                    geological, biological or genetic processes."
+349,phrase,"Self-organizing systems can
+                    change their internal structure or their function in response to feedback or
+                    changed circumstances."
+350,phrase,"Organizing
+                            principles are directives for the design or
+                        arrangement of a collection of resources that are ideally expressed in a way
+                        that does not assume any particular implementation or
+                    realization."
+351,phrase,"arranging resources
+according to their names"
+352,phrase,"arranging resources
+according to the date of their creation or other important event in the
+lifetime of the resource"
+353,phrase,"It is highly desirable when the design and implementation of an
+organizing system separates the storage of the resources from the
+logic of their arrangement and the methods for interacting with
+them. This three-tier architect is familiar to designers of
+computerized organizing systems but it is also useful to think about
+organizing systems in this way even when it involves physical
+resources."
+354,phrase,"Because tangible
+                            things can only be in one place at a
+                            time , many Organizing Systems — like
+                        that in the modern library with online catalogs and physical collections — resolve
+                        this constraint by creating digital proxies or surrogates to organize their tangible resources, or
+                        create parallel digital resources like digitized books."
+355,phrase,"The Organizing System
+                        for a small collection can sometimes use only the minimal or default
+                        organizing principle of collocation — putting
+                        all the resources in the same container, on the same
+                            shelf , or in the same email in-box."
+356,phrase,"Some organization emerges implicitly through
+                        a frequency of
+                                use principle. In your kitchen or
+                        clothes closet, the resources you use most often migrate to the front
+                        because that is the easiest place to return them after using them."
+357,phrase,"We use the more general
+                        word, agent , for
+                        any entity capable of autonomous and intentional organizing effort, because
+                        it treats organizing work done by people and organizing work done by
+                        computers as having common goals, despite obvious differences in
+                        methods."
+358,phrase,"agency A group of people can be an organizing agent , as when a
+                        group of people come together in a service club or standards body technical
+                        committee in which the members of the group subordinate their own individual
+                        agency to achieve a collective good."
+359,phrase,"RFID computational agents In some Organizing Systems the resources themselves are capable
+                        of initiating interactions with other resources or with external agents ."
+360,phrase,"An interaction is an action , function , service , or capability that makes use of the resources in a collection
+                    or the collection as a whole. The interaction of access is fundamental in any collection of
+                    resources, but many Organizing Systems provide additional functions to make access more efficient
+                    and to support additional interactions with the accessed
+                    resources. For example, libraries and similar Organizing Systems implement
+                    catalogs to enable interactions for finding a known resource, identifying any resource in the
+                    collection, and discriminating or selecting among similar
+                    resources."
+361,phrase,"We might treat circulation , borrowing and returning the
+                            same item, as one of the interactions with resources that defines a
+                            library."
+362,phrase,"The original order of the
+                    resources in an archive embodies the implicit or explicit Organizing System of
+                    the person or entity that created the documents and it is treated as an
+                    essential part of the meaning of the collection. As a result, the unit of
+                    organization for archival collections is the fonds — the
+                    original arrangement or grouping, preserving any hierarchy of boxes , folders , envelopes , and individual documents — and thus they are not
+                    re-organized according to other (perhaps more systematic)
+                    classifications."
+363,phrase,"Curation usually refers to the methods or systems
+                    that add value to and preserve resources, while the concept of governance more often emphasizes the
+                    institutions or organizations that carry out those activities. The former is
+                    most often used for libraries, museums, or archives and the latter for
+                    enterprise or inter-enterprise contexts."
+364,phrase,"Fortunately most users of Web 2.0 or community content applications at
+                    least partly recognize that the organization of resources emerges from the
+                    aggregated contributions of all users, which provides incentive to use less
+                    egocentric descriptors and classifications."
+365,phrase,"Classification is
+                    applied categorization — the assignment of resources to a
+                    system of categories, called classes, using a predetermined set of
+                    principles."
