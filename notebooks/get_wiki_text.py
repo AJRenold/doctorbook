@@ -30,7 +30,7 @@ class Wikipedia:
         return result
     
     def article(self, url):
-        article = url.rsplit('/',1)[1]
+        article = url[url.rfind('/')+1:]
         url = self.url_article % (self.lang, urllib.quote_plus(article))
         content = self.__fetch(url).read()
         
@@ -97,13 +97,14 @@ class Wiki2Plain:
 #    url_search = 'http://%s.wikipedia.org/w/api.php?action=query&list=search&srsearch=%s&sroffset=%d&srlimit=%d&format=yaml'
     
     def __init__(self, url):
-        self.wiki = Wikipedia('simple')
+        self.wiki = Wikipedia('en')
         self.wiki_article = self.wiki.article(url)
 
         self.text = self.wiki_article
         self.text = self.unhtml(self.text)
         self.text = self.unwiki(self.text)
         self.text = self.punctuate(self.text)
+        self.text = self.get_summary(self.text)
     
     def __str__(self):
         return self.text
@@ -164,6 +165,10 @@ class Wiki2Plain:
         
         return '\n\n'.join(partsParsed)
 
+    def get_summary(self,text):
+        text = text[:text.find('==')]
+        return text
+
     def image(self):
         url_image = 'http://simple.wikipedia.org/w/index.php?title=Special:FilePath&file=' 
         """
@@ -179,11 +184,11 @@ class Wiki2Plain:
 
 if __name__ == '__main__':
 
-    wiki2plain = Wiki2Plain('http://en.wikipedia.org/wiki/Love')
+    wiki2plain = Wiki2Plain('http://en.wikipedia.org/wiki/Labor_union')
     content = wiki2plain.text
     image = wiki2plain.image()
 
     print '---'
-    print content[:content.find('==')]
+    print content
     print '---'
     print image
