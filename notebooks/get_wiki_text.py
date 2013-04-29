@@ -178,7 +178,7 @@ class Wiki2Plain:
         match = re.search(r'= (\b[\w ]+\b)+.(gif|jpg|jpeg|png|bmp)', self.wiki_article)
         if match:
             image_url = url_image + '%s.%s' % match.groups()
-            image_url = re.sub(' ', '_', image_underscore)        
+            image_url = re.sub(' ', '_', image_url)
             return image_url
         
         return None
