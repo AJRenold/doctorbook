@@ -175,10 +175,11 @@ class Wiki2Plain:
         Retrieve the first image in the document.
         """
         # match = re.search(r'(?i)\|?\s*(image|img|image_flag)\s*=\s*(<!--.*-->)?\s*([^\\/:*?<>"|%]+\.[^\\/:*?<>"|%]{3,4})', self.wiki)
-        match = re.search(r'(?i)([^\\/:*?<>"|% =]+)\.(gif|jpg|jpeg|png|bmp)', self.wiki_article)
-        
+        match = re.search(r'= (\b[\w ]+\b)+.(gif|jpg|jpeg|png|bmp)', self.wiki_article)
         if match:
-            return url_image + '%s.%s' % match.groups()
+            image_url = url_image + '%s.%s' % match.groups()
+            image_url = re.sub(' ', '_', image_underscore)        
+            return image_url
         
         return None
 
