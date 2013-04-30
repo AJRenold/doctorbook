@@ -101,20 +101,25 @@ class ParseTextForWiki():
             wiki = Wiki2Plain(url)
             return wiki.text, "none" #wiki.image()
 
-        print 'get text and image'
+        def get_flickr_url(term):
+            flickr_api.set_keys(**secrets)
+            photos = flickr_api.Photo.search(tags=term, sort='date-posted-desc')
+            print len(photos)
+            if len(photos) == 0:
+                return []
+            flickr_urls = []
+            for photo in photos[:3]:
+                flickr_urls.append("http://farm{farm}.staticflickr.com/{server}/{id}_{secret}_m.jpg".format(**photo.getInfo()))
+            return flickr_urls
+
+        print 'get text and image and flickr'
         if len(wiki_df) > 0:
             wiki_df['wiki_text'],wiki_df['wiki_image'] = zip(*wiki_df['url'].apply(get_wiki_textimage))
+            wiki_df['flickr_urls'] = wiki_df['term'].apply(get_flickr_url)
+
         print 'done'
 
         return wiki_df
-
-    def get_flickr_url(self, term):
-        flickr_api.set_keys(**secrets)
-        photos = flickr_api.Photo.search(tags=term, sort='date-posted-desc')
-        for photo in photos[:10]:
-            print "http://farm{farm}.staticflickr.com/{server}/{id}_{secret}.jpg".format(**photo.getInfo())
-        
-        return None#flickr_url
 
     def append_term_location_in_text(self, wiki_df, text):
         
