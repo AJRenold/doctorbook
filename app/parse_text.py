@@ -112,7 +112,7 @@ class ParseTextForWiki():
         flickr_api.set_keys(**secrets)
         photos = flickr_api.Photo.search(tags=term, sort='date-posted-desc')
         for photo in photos[:10]:
-            print photo.getInfo()['urls']['url']
+            print "http://farm{farm}.staticflickr.com/{server}/{id}_{secret}.jpg".format(**photo.getInfo())
         
         return None#flickr_url
 
