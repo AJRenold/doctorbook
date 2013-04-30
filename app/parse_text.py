@@ -11,6 +11,7 @@ import os
 from flickr_api.auth import AuthHandler
 from flickr_api import FlickrError
 import flickr_api
+import sys
  
 # Our tools
 from get_wiki_links import WikiUrlFetch
@@ -19,8 +20,8 @@ from get_wiki_links import WikiUrlFetch2
 from get_wiki_text import Wiki2Plain
 
 if os.path.exists('settings.py'):
-    app.config.from_pyfile('settings.py')
-    secrets = {'api_key': app.config.get('FLICKR_KEY'), 'api_secret': app.config.get('FLICKR_SECRET')}
+    from settings import FLICKR_KEY, FLICKR_SECRET
+    secrets = {'api_key': FLICKR_KEY, 'api_secret': FLICKR_SECRET}
 else:
     print("copy settings-sample.py to settings.py and run again")
     sys.exit()
@@ -107,12 +108,13 @@ class ParseTextForWiki():
 
         return wiki_df
 
-	def get_flickr_url(self, term):
-	    flickr_api.set_keys(**secrets)
-	    photos = flickr_api.Photo.search(tags=term, sort='date-posted-desc')
-	    for photo in photos:
-	            app.logger.debug(photo.getInfo()['urls']['url'])
-	    return None#flickr_url
+    def get_flickr_url(self, term):
+        flickr_api.set_keys(**secrets)
+        photos = flickr_api.Photo.search(tags=term, sort='date-posted-desc')
+        for photo in photos[:10]:
+            print photo.getInfo()['urls']['url']
+        
+        return None#flickr_url
 
     def append_term_location_in_text(self, wiki_df, text):
         
@@ -136,3 +138,7 @@ class ParseTextForWiki():
 
     def get_wiki_df(self):
         return self.wiki_df
+
+if __name__ == '__main__':
+    w = ParseTextForWiki('a')
+    w.get_flickr_url('horse')
