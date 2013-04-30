@@ -38,5 +38,6 @@ def search_api():
         return(jsonify(results=df))
 
 if __name__ == "__main__":
+    
     port = int(os.environ.get('PORT', 8000))
     app.run()

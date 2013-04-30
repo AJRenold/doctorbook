@@ -28,7 +28,7 @@ class ParseTextForWiki():
 
     def create_term_list(self,text):
 
-        clean_text = re.sub(r"[\n\.,\(\)\?\!\-']",' ',text)
+        clean_text = re.sub(r"[\n\.,\(\)\?\!\-':]",'',text)
         tagged_text = nltk.pos_tag(clean_text.split(' '))
 
         pos = ['NN','NNS','NNP','NNPS']
@@ -36,7 +36,6 @@ class ParseTextForWiki():
         terms = []
         chain = []
         for term in tagged_text:
-
             if term[1] in pos:
                 chain.append(term)
                 terms.append(term[0].lower().encode('UTF-8'))
@@ -72,25 +71,29 @@ class ParseTextForWiki():
 
         list_for_wiki_df = []
 
-        search_wiki = WikiUrlFetch()
+        search_wiki = WikiUrlFetch2()
+        print 'start search'
 
-        for row in islice(term_df.iterrows(),None): # iterations limited 100 because WikiUrlFetch is very slow for many terms
-                                        # likely this is because of DBPedia API limitations
+        for row in islice(term_df.iterrows(),None):
             wikis = search_wiki.fetch_wiki(row[1]['term'])
-    
+
             for wiki in wikis:
                 if wiki['match'] == 'exact' or wiki['match'] == 'good-partial':
                     list_for_wiki_df.append( { 'term': row[1]['term'], 'matched_term': wiki['term'], \
                     'count': row[1]['count'], 'match': wiki['match'], 'url': wiki['wiki_url'] } )
-            
+
+        print 'end search'
         wiki_df = pd.DataFrame(list_for_wiki_df)
-            
+
+        ## currently Wiki2Plain .image() is running slow, not fetching images
         def get_wiki_textimage(url):
             wiki = Wiki2Plain(url)
-            return wiki.text, wiki.image()
+            return wiki.text, "none" #wiki.image()
 
+        print 'get text and image'
         if len(wiki_df) > 0:
             wiki_df['wiki_text'],wiki_df['wiki_image'] = zip(*wiki_df['url'].apply(get_wiki_textimage))
+        print 'done'
 
         return wiki_df
 
@@ -99,7 +102,7 @@ class ParseTextForWiki():
         
         def append_text_locations(term):
             term_len = len(term)
-            term_loc = text.lower().find(term)
+            term_loc = text.encode("UTF-8").lower().find(term)
             text_loc = [ term_loc, term_loc+term_len ]
             text_before = text[term_loc-50:term_loc]
             text_after = text[term_loc+term_len:term_loc+term_len+50]

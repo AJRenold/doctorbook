@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from urllib2 import urlopen
+import urllib2
 import re
 import json
 from nltk import metrics
@@ -141,23 +142,47 @@ class WikiUrlFetch2():
 
     def check_wikipedia_api(self,term):
 
-        print 'anything!'
+        url = self.wiki_api+re.sub(' ','_',term)
+        request = urllib2.Request(url)
+        request.add_header('User-Agent', 'Mozilla/5.0')
+        
         try:
-            response = urlopen(self.wiki_api+term)
-        except:
+            response = urlopen(request)
+        except urllib2.HTTPError, e:
+            print e.code
             return
-        print 'more!'
+        except urllib2.URLError, e:
+            print e.reason
+            return
 
-
+        results = []
         data = json.loads(response.read())
         for key,value in data.items():
-            print key,value
+            if 'search' in value:
+                if type(value['search']) == list:
+                    results = self.parse_wikipedia_results(value['search'])
+
+        if len(results) > 0:
+            return self.rank_dbpedia_results(results,term)
+        else:
+            return [ { 'match': 'none', 'term': term.encode('utf-8') } ]
+
+    def parse_wikipedia_results(self,results):
+        base_wikipedia_url = 'http://en.wikipedia.org/wiki/'
+        wiki_urls = []
+        for result in results:
+            if 'title' in result:
+                wiki_urls.append( \
+                { 'url': (base_wikipedia_url + re.sub(' ','_',result['title'])).encode('UTF-8') , \
+                'term': result['title'].encode('UTF-8') } )
+
+        return wiki_urls
 
     def clean_term(self,term):
         return re.sub(r"[^A-Za-z0-9 ]","",term.lower())
 
     def normalize(self,string):
-        strings = string.split(" ")
+        strings = string.lower().split(" ")
         strings.sort()
         return " ".join(strings)
 
@@ -174,7 +199,8 @@ class WikiUrlFetch2():
             matches.append([metrics.edit_distance(self.normalize(result['term']), self.normalize(term)), result])
 
         matches.sort()
-        #print matches
+        print term,matches
+        print
         if len(matches) == 0:
             return [ { 'match': 'none', 'term': term.encode('utf-8') } ] 
         
@@ -191,14 +217,14 @@ class WikiUrlFetch2():
                     result['match'] = 'good-partial'
                     new_results.append(result)
 
-                """ # needs refinement to provide good matches
+                # needs refinement to provide good matches
                 elif match[0] <= 5:
                     words = self.normalize(result['term']).split(' ')
                     if self.normalize(term) in words:
                         result = match[1]
                         result['match'] = 'good-partial'
                         new_results.append(result)
-                """
+
             return new_results
 
         else:
@@ -207,35 +233,17 @@ class WikiUrlFetch2():
                 result['match'] = 'partial'
                 new_results.append(result)
             return new_results
-    
-    def wiki_url(self,url):
-
-        term = url[url.rfind('/'):]
-        entity_page = 'http://dbpedia.org/data/{}.json'.format(term)
-    
-        wiki_type = 'http://xmlns.com/foaf/0.1/primaryTopic'
-    
-        try:
-            response = urlopen(entity_page)
-        except:
-            return
-    
-        data = json.loads(response.read())
-        for key,value in data.items():
-            'http://xmlns.com/foaf/0.1/primaryTopic'
-            if 'http://xmlns.com/foaf/0.1/primaryTopic' in value:
-                #print key
-                return key.encode('utf-8')
 
     def get_wiki_url(self, term):
-    
+
         results = self.check_wikipedia_api(term)
 
         for result in results:
             if result['match'] != 'none' and result['match'] != 'partial':
-                wiki = self.wiki_url(result['url'])
-                result['wiki_url'] = wiki
+                result['wiki_url'] = result['url']
+                
 
+        #print results
         return results
 
 
