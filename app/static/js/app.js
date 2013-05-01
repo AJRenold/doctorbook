@@ -9,7 +9,8 @@
             wiki_text:'none',
             text_loc: [0,0],
             text_before: 'none',
-            text_after: 'none'
+            text_after: 'none',
+            flickr_urls: []
         }
     });
 

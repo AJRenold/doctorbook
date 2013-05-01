@@ -23,7 +23,9 @@
         <ul>
             <li>URL: <a href="<%= url %>"><%= url %></a></li>
             <li>Description: <%= wiki_text %></li>
-            <li><img src="<%= wiki_image %>" alt="wikipedia image" height="100" width="100"></li>
+            <li><% _.each(flickr_urls, function(url) { %>
+                <img src="<%= url %>"/>
+            <% }); %></li>
         </ul>
     </script>
 
