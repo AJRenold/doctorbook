@@ -43,7 +43,6 @@ class Guardian(object):
 			out_list += self._process_result(json_response)
 		return out_list
 
-'''
 class NewYorkTimes(object):
 	def __init__(self, api_key):
 		self.api_key = api_key
@@ -62,7 +61,7 @@ class NewYorkTimes(object):
 		}
 		api_response = requests.get(endpoint, params=payload)
 		api_response.raise_for_status()
-		return api_response.json
+		return api_response.text
 
 	def _process_result(self, json):
 		return [el['url'] for el in json['results']]
@@ -70,11 +69,12 @@ class NewYorkTimes(object):
 	def query(self, query, from_date=date.today().strftime('%Y0101'), to_date=date.today().strftime('%Y%m%d')):
 		out_list = []
 		raw_response = self._request(query, from_date.replace('-', ''), to_date.replace('-', ''))
-		out_list += self._process_result(raw_response)
+		json_response = json.loads(raw_response)
+		out_list += self._process_result(json_response)
 		current_offset = 0
-		while current_offset < (raw_response['total']/10):
+		while current_offset < (json_response['total']/10):
 			current_offset += 1
 			raw_response = self._request(query, from_date.replace('-', ''), to_date.replace('-', ''), current_offset)
-			out_list += self._process_result(raw_response)
+			json_response = json.loads(raw_response)
+			out_list += self._process_result(json_response)
 		return out_list
-'''
