@@ -8,34 +8,52 @@ import re
 from itertools import islice
 from collections import Counter
 import os
-from flickr_api.auth import AuthHandler
-from flickr_api import FlickrError
-import flickr_api
 import sys
  
 # Our tools
 from get_wiki_links import WikiUrlFetch
-from get_wiki_links import WikiUrlFetch2
+from get_wiki_links import WikiUrlFetchNonDBPedia
 
 from get_wiki_text import Wiki2Plain
 
-if os.path.exists('settings.py'):
-    from settings import FLICKR_KEY, FLICKR_SECRET
-    secrets = {'api_key': FLICKR_KEY, 'api_secret': FLICKR_SECRET}
-else:
-    print("copy settings-sample.py to settings.py and run again")
-    sys.exit()
+try:
+    ## flickr api tools
+    from flickr_api.auth import AuthHandler
+    from flickr_api import FlickrError
+    import flickr_api
+
+    ## news api tools
+    from tidings import Guardian, NewYorkTimes
+
+except:
+    pass
 
 class ParseTextForWiki():
 
-    def __init__(self,text):
+    def __init__(self,text,flickr=False,news=False):
+
+        self.flickr = flickr
+        self.news = news
+        if self.flickr or self.news:
+            self.secrets, self.news_keys = self.load_api_keys()
+
         self.text = text
         self.term_list = self.create_term_list(self.text)
         self.term_df = self.create_df_from_terms(self.term_list)
-        self.wiki_df = self.create_wiki_df(self.term_df)
+        self.wiki_df = self.create_wiki_df(self.term_df, self.flickr, self.news)
         self.wiki_df = self.append_term_location_in_text(self.wiki_df, self.text)
 
-        #self.test = self.get_first_term_test()
+
+
+    def load_api_keys(self):
+        if os.path.exists('settings.py'):
+            from settings import FLICKR_KEY, FLICKR_SECRET, guardian_key, nyt_key
+            secrets = {'api_key': FLICKR_KEY, 'api_secret': FLICKR_SECRET}
+            news_keys = {'guardian_key': guardian_key, 'nyt_key': nyt_key }
+            return secrets, news_keys
+        else:
+            print("settings.py not found, add to directory or run without flickr and news")
+            sys.exit()
 
     def create_term_list(self,text):
 
@@ -78,11 +96,12 @@ class ParseTextForWiki():
         return pd.DataFrame(list_for_df)
         return pd.DataFrame(list_for_df)
 
-    def create_wiki_df(self,term_df):
+    def create_wiki_df(self,term_df,flickr,news):
 
         list_for_wiki_df = []
 
-        search_wiki = WikiUrlFetch2()
+        #search_wiki = WikiUrlFetch()
+        search_wiki = WikiUrlFetchNonDBPedia()
         print 'start search'
 
         for row in islice(term_df.iterrows(),None):
@@ -102,7 +121,7 @@ class ParseTextForWiki():
             return wiki.text, "none" #wiki.image()
 
         def get_flickr_url(term):
-            flickr_api.set_keys(**secrets)
+            flickr_api.set_keys(**self.secrets)
             photos = flickr_api.Photo.search(tags=term, sort='date-posted-desc')
 
             if len(photos) == 0 or type(photos) == dict:
@@ -118,11 +137,23 @@ class ParseTextForWiki():
 
             return flickr_urls
 
+        def get_news_url(term):
+            g = Guardian(self.news_keys['guardian_key'])
+            g_links = g.query(term, from_date='2013-01-01', to_date='2013-4-30')
+            return g_links
 
-        print 'get text and image and flickr'
+            #nyt = NewYorkTimes(self.news_keys['nyt_key'])
+            #nyt_links = nyt.query(term, from_date='2013-01-01', to_date='2013-4-30')
+            #for nyt_url in nyt_links:
+            #    print nyt_url
+
+        print 'get text and image, flickr, news'
         if len(wiki_df) > 0:
             wiki_df['wiki_text'],wiki_df['wiki_image'] = zip(*wiki_df['url'].apply(get_wiki_textimage))
-            wiki_df['flickr_urls'] = wiki_df['term'].apply(get_flickr_url)
+            if self.flickr:
+                wiki_df['flickr_urls'] = wiki_df['term'].apply(get_flickr_url)
+            if self.news:
+                wiki_df['news_urls'] = wiki_df['term'].apply(get_news_url)
 
         print 'done'
 
@@ -153,4 +184,3 @@ class ParseTextForWiki():
 
 if __name__ == '__main__':
     w = ParseTextForWiki('a')
-    w.get_flickr_url('horse')
