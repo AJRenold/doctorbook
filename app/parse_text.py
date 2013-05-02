@@ -104,13 +104,20 @@ class ParseTextForWiki():
         def get_flickr_url(term):
             flickr_api.set_keys(**secrets)
             photos = flickr_api.Photo.search(tags=term, sort='date-posted-desc')
-            print len(photos)
-            if len(photos) == 0:
+
+            if len(photos) == 0 or type(photos) == dict:
+                print "len 0 or dict"
+                print photos
                 return []
             flickr_urls = []
             for photo in photos[:3]:
-                flickr_urls.append("http://farm{farm}.staticflickr.com/{server}/{id}_{secret}_m.jpg".format(**photo.getInfo()))
+                try:
+                    flickr_urls.append("http://farm{farm}.staticflickr.com/{server}/{id}_{secret}_m.jpg".format(**photo.getInfo()))
+                except FlickrError:
+                    pass
+
             return flickr_urls
+
 
         print 'get text and image and flickr'
         if len(wiki_df) > 0:

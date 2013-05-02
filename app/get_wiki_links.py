@@ -209,7 +209,7 @@ class WikiUrlFetch2():
             new_results[0]['match'] = 'exact'
             return new_results
 
-        elif matches[0][0] <= 8:
+        elif matches[0][0] <= 5:
             new_results = []
             for match in matches:
                 if match[0] <= 3:
