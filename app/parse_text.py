@@ -138,16 +138,14 @@ class ParseTextForWiki():
             return flickr_urls
 
         def get_news_url(term):
-            #g = Guardian(self.news_keys['guardian_key'])
-            #g_links = g.query(term, from_date='2013-01-01', to_date='2012-4-30')
-            #print g_links
-            #for g_url in g_links:
-            #    print g_url
+            g = Guardian(self.news_keys['guardian_key'])
+            g_links = g.query(term, from_date='2013-01-01', to_date='2013-4-30')
+            return g_links
 
-            nyt = NewYorkTimes(self.news_keys['nyt_key'])
-            nyt_links = nyt.query(term, from_date='2013-01-01', to_date='2012-4-30')
-            for nyt_url in nyt_links:
-                print nyt_url
+            #nyt = NewYorkTimes(self.news_keys['nyt_key'])
+            #nyt_links = nyt.query(term, from_date='2013-01-01', to_date='2013-4-30')
+            #for nyt_url in nyt_links:
+            #    print nyt_url
 
         print 'get text and image, flickr, news'
         if len(wiki_df) > 0:
@@ -186,4 +184,3 @@ class ParseTextForWiki():
 
 if __name__ == '__main__':
     w = ParseTextForWiki('a')
-    w.get_flickr_url('horse')

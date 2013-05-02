@@ -120,7 +120,7 @@ class WikiUrlFetch():
         results = self.check_dbpedia(term)
 
         for result in results:
-            if result['match'] != 'none' and result['match'] != 'partial':
+            if result['match'] != 'none':
                 wiki = self.wiki_url(result['url'])
                 result['wiki_url'] = wiki
 

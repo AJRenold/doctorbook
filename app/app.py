@@ -30,7 +30,7 @@ def search_api():
         app.logger.debug('hit')
 
         text = request.form['text']
-        wikis = ParseTextForWiki(text,flickr=True,news=True)
+        wikis = ParseTextForWiki(text,flickr=True,news=False)
         df = wikis.get_wiki_df()
         
         df = [{k:df.values[i][v] for v,k in enumerate(df.columns)} for i in range(len(df)) ]
