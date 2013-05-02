@@ -18,6 +18,7 @@ from get_wiki_links import WikiUrlFetch
 from get_wiki_links import WikiUrlFetch2
 
 from get_wiki_text import Wiki2Plain
+from tidings import Guardian, NewYorkTimes
 
 if os.path.exists('settings.py'):
     from settings import FLICKR_KEY, FLICKR_SECRET
@@ -96,6 +97,17 @@ class ParseTextForWiki():
         print 'end search'
         wiki_df = pd.DataFrame(list_for_wiki_df)
 
+        def get_news_url(term):
+			g = Guardian('qjeerxeq56a58z97hqpkycct')
+			g_links = g.query(term -term, from_date='2013-01-01', to_date='2012-4-30')
+			for g_url in g_links:
+				return g_link
+
+			nyt = NewYorkTimes('1d7925fb2bd6eb73fdaf0aa2877f5c6d:1:38670732')
+			nyt_links = nyt.query(term -term, from_date='2013-01-01', to_date='2012-4-30')
+			for nyt_url in nyt_links:
+				return g_link			
+				
         ## currently Wiki2Plain .image() is running slow, not fetching images
         def get_wiki_textimage(url):
             wiki = Wiki2Plain(url)
