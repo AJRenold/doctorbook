@@ -7,8 +7,6 @@ import json
 from nltk import metrics
 from bs4 import BeautifulSoup, Tag
 
-## try http://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch={term}
-
 class WikiUrlFetch():
 
     def __init__(self):
@@ -128,8 +126,7 @@ class WikiUrlFetch():
 
         return results
 
-class WikiUrlFetch2():
-
+class WikiUrlFetchNonDBPedia():
 
     def __init__(self):
         self.wiki_api =  'http://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch='
@@ -145,7 +142,7 @@ class WikiUrlFetch2():
         url = self.wiki_api+re.sub(' ','_',term)
         request = urllib2.Request(url)
         request.add_header('User-Agent', 'Mozilla/5.0')
-        
+
         try:
             response = urlopen(request)
         except urllib2.HTTPError, e:
@@ -203,7 +200,7 @@ class WikiUrlFetch2():
         print
         if len(matches) == 0:
             return [ { 'match': 'none', 'term': term.encode('utf-8') } ] 
-        
+
         elif matches[0][0] == 0:
             new_results = [ matches[0][1] ]
             new_results[0]['match'] = 'exact'
